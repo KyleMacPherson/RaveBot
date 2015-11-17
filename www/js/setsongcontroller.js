@@ -8,17 +8,18 @@ ravebot.controller('SetSongCtrl', ['$scope', '$http', '$state', '$location', '$c
       client_id: '8e74002fd2542f89231c5133c2a54833'
     });
 
-    SC.get('/tracks', {
+    return SC.get('/tracks', {
       q: searchQuery
     }).then(function(tracks) {
       $scope.searchResults = tracks;
     });
+    console.log($scope.searchResults)
   };
 
-  $scope.sendSong = function(url, message, name) {
-    var songData = {'party_name': $scope.partyName, 'url': url, 'name': name, 'message': message}
+  $scope.sendSong = function(track, message, name) {
+    var songData = {'party_name': $scope.partyName, 'url': track.permalink_url, 'name': name, 'message': message, 'duration': track.duration}
     $http.post('https://stormy-bastion-7671.herokuapp.com/songs', songData, 'POST').success(function(response) {
-      $state.go('setsong')
+      $state.reload()
     });
   }
 }]);
