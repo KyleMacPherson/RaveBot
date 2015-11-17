@@ -11,8 +11,14 @@ ravebot.controller('SetSongCtrl', ['$scope', '$http', '$state', '$location', '$c
     SC.get('/tracks', {
       q: searchQuery
     }).then(function(tracks) {
-      self.searchResults = tracks;
+      $scope.searchResults = tracks;
     });
   };
-  
+
+  $scope.sendSong = function(url, message, name) {
+    var songData = {'party_name': $scope.partyName, 'url': url, 'name': name, 'message': message}
+    $http.post('https://stormy-bastion-7671.herokuapp.com/songs', songData, 'POST').success(function(response) {
+      $state.go('setsong')
+    });
+  }
 }]);

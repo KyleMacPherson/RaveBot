@@ -1,2 +1,3 @@
-<ion-content ng-controller="PlayerCtrl">
+<ion-content ng-controller="PlayerCtrl" ng-init="grabSong()">
+  <iframe id="sc-widget" ng-src="{{trustSrc(currentSong)}}" width="100%" height="465" scrolling="no" frameborder="no"></iframe>
 </ion-content>

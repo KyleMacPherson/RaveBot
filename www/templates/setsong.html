@@ -1,4 +1,9 @@
 <ion-content ng-controller="SetSongCtrl">
+  <div class="col col-33" id="pushdown">
+    <button class="button button-block button-positive" ui-sref="home" id='backHome'>
+      Back to home
+    </button>
+  </div>
   <div class="col col-100" id="pushdown">
     <h2>Send a song to {{ partyName }}</h2>
   </div>
@@ -6,6 +11,12 @@
     <label class="item item-input" id="url">
       <i class="icon ion-search placeholder-icon"></i>
       <input type="text" ng-model="searchTerm" placeholder="Search for theme song">
+    </label>
+    <label class="item item-input" id="name">
+      <input type="text" ng-model="name" placeholder="Your name here">
+    </label>
+    <label class="item item-input" id="message">
+      <input type="text" ng-model="message" placeholder="Send a message">
     </label>
     <button class="button button-block button-positive" ng-click="searchSC(searchTerm)" id='searchSC'>
       Search
@@ -20,7 +31,7 @@
       <img src="{{ track.artwork_url }}">
     </div>
 
-    <a class="item item-icon-left assertive" ng-click="sendSong(track.permalink_url)">
+    <a class="item item-icon-left assertive" ng-click="sendSong(track.permalink_url, message, name)">
       <i class="icon ion-music-note"></i>
       Send Your Song
     </a>
