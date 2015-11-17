@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var ravebot = angular.module('thememe', ['ionic', 'ngCordova', 'ui.router', 'ngCookies'])
+var ravebot = angular.module('ravebot', ['ionic', 'ui.router', 'ngCookies'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,28 +20,28 @@ var ravebot = angular.module('thememe', ['ionic', 'ngCordova', 'ui.router', 'ngC
 
 .config(function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise("/");
+  $urlRouterProvider.otherwise("/home");
 
   $stateProvider
     .state('home', {
       cache: false,
-      url: '/',
+      url: '/home',
       templateUrl: 'templates/home.html',
       controller: 'HomeCtrl'
     })
 
-    .state('setsong', {
+    .state('partyplayer', {
       cache: false,
-      url: '/',
-      templateUrl: 'templates/setsong.html',
-      controller: ''
+      url: '/party',
+      templateUrl: 'templates/partyplayer.html',
+      controller: 'PlayerCtrl'
     })
 
-    .state('playtheme', {
+    .state('setsong', {
       cache: false,
-      url: '/',
-      templateUrl: 'templates/play.html',
-      controller: ''
+      url: '/set',
+      templateUrl: 'templates/setsong.html',
+      controller: 'SetSongCtrl'
     })
 
 })

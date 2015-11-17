@@ -1,0 +1,16 @@
+<ion-content ng-app="HomeCtrl">
+  <div class="list list-inset" id="pushdown">
+    <label class="item item-input" id="partyname">
+      <input type="text" ng-model="partyname" placeholder="Give your party a unique name">
+    </label>
+    <button class="button button-block button-positive" ng-click="createParty(partyname)" id="createParty">
+      Create Party
+    </button>
+    <label class="item item-input" id="joinparty">
+      <input type="text" ng-model="joinparty" placeholder="Enter a party name">
+    </label>
+    <button class="button button-block button-positive" ng-click="joinParty(joinparty)" id="joinParty">
+      Join A Party
+    </button>
+  </div>
+</ion-content>
