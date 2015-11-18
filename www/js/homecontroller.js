@@ -4,6 +4,7 @@ ravebot.controller('HomeCtrl', ['$scope', '$http', '$state', '$location', '$cook
     var newPartyPost = {'name': partyname}
     $http.post('https://stormy-bastion-7671.herokuapp.com/partys', newPartyPost, 'POST').success(function(response) {
       $cookies.put('partyName', response.name)
+      $cookies.put('party_id', response.id)
       $state.go('partyplayer')
     });
   };
