@@ -17,7 +17,7 @@ ravebot.controller('SetSongCtrl', ['$scope', '$http', '$state', '$location', '$c
   };
 
   $scope.sendSong = function(track, message, name) {
-    var songData = {'party_name': $scope.partyName, 'url': track.permalink_url, 'name': name, 'message': message, 'duration': track.duration}
+    var songData = {'party_name': $scope.partyName, 'url': track.permalink_url, 'name': name, 'message': message, 'duration': track.duration, 'party_id': $cookies.get('party_id') }
     $http.post('https://stormy-bastion-7671.herokuapp.com/songs', songData, 'POST').success(function(response) {
       $state.reload()
     });
